@@ -42,6 +42,14 @@ Swagger UI: http://localhost:8080/swagger-ui/index.html
 
 Основное API: http://localhost:8080/api/v1/
 
+В качестве тестового пользователя используйте предзаполненные данные в /auth/login  
+{  
+"login": "ivanov@example.com",  
+"password": "password123"  
+}
+
+После запуска контейнера логи будут выводиться в консоль и в папку /logs в корне проекта
+
 ## Используемые технологии
 
 - **Java 21**
