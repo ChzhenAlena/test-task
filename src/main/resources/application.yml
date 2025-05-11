@@ -1,0 +1,49 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://${POSTGRES_HOST:postgres}:${POSTGRES_PORT:5432}/${POSTGRES_DB}
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        globally_quoted_identifiers: true
+    open-in-view: true
+  data:
+    redis:
+      host: ${REDIS_HOST:redis}
+      port: ${REDIS_PORT:6379}
+      timeout: 5000
+  cache:
+    type: redis
+    redis:
+      time-to-live:
+        users: 86_400_000    # 24 часа (основные данные пользователя)
+        accounts: 300_000    # 30 сек (баланс)
+        userSearches: 1_800_000   # 30 мин (результаты поиска)
+      cache-null-values: false
+    key-prefix: "app:"
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+    persistAuthorization: true
+  api-docs:
+    path: /v3/api-docs
+
+app:
+  balance:
+    update:
+      rate-ms: 30000
+      increase-percent: 10
+      max-increase-percent: 207
+  transfer:
+    max-amount: 1_000_000
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: 86_400_000 # 24 часа

@@ -1,0 +1,91 @@
+.env
+
+### Общие системные файлы ###
+.DS_Store
+Thumbs.db
+*.log
+*.bak
+*.swp
+*~
+
+### Java ###
+# Файлы сборки
+target/
+!**/src/main/**/target/  # Исключение для специфических путей
+!**/src/test/**/target/
+build/
+out/
+bin/
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+### Docker ###
+.env                # Локальные переменные окружения
+.env.local          # Локальные переопределения
+docker-compose.override.yml
+**/docker-data/     # Данные контейнеров
+
+### IDE ###
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# VS Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# STS
+.springBeans
+.apt_generated
+.factorypath
+
+### Логи ###
+logs/
+*.log
+*.log.*
+!example.log
+
+### Тестовые данные ###
+**/test-output/
+**/tmp/
+**/temp/
+
+### Документация ###
+**/docs/_build/
+**/docs/_out/
+
+### Исключения ###
+!README.md          # Явно включаем README
+!LICENSE            # Явно включаем лицензию
+!**/src/main/resources/application.yml  # Конфиги
+!**/src/test
